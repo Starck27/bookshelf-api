@@ -1,0 +1,300 @@
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+header {
+  margin-top: 0.625rem;
+}
+
+body {
+  background: url("https://images.pexels.com/photos/4132936/pexels-photo-4132936.png?auto=compress&cs=tinysrgb&w=600");
+  background-position: 50% 90%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: wheat;
+  height: 100%;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-left: 5rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8);
+}
+
+h2 {
+  text-align: center;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  grid-template-rows: repeat(2, 1fr);
+  gap: 0;
+}
+
+section {
+  margin-left: 1rem;
+  padding: 8px 10px;
+  border: 2px solid wheat;
+  border-radius: 0.5rem;
+  margin-bottom: 5%;
+}
+
+section:nth-child(1) {
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+section:nth-child(2) {
+  grid-area: 2 / 1 / 3 / 2;
+  height: 50%;
+}
+
+section:nth-child(3) {
+  grid-area: 1 / 2 / 2 / 3;
+}
+
+section:nth-child(4) {
+  grid-area: 2 / 2 / 3 / 3;
+  margin-top: -5%;
+}
+
+section:nth-child(3),
+section:nth-child(4) {
+  backdrop-filter: blur(8px);
+  height: 275px;
+  overflow-y: scroll;
+  margin-right: 1rem;
+}
+
+section:nth-child(3)::-webkit-scrollbar,
+section:nth-child(4)::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+section:nth-child(3)::-webkit-scrollbar-thumb,
+section:nth-child(4)::-webkit-scrollbar-thumb {
+  background-color: wheat;
+  border-radius: 10px;
+}
+
+section:nth-child(3)::-webkit-scrollbar-thumb:hover,
+section:nth-child(4)::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(245, 222, 179, 0.8);
+}
+
+section:nth-child(3)::-webkit-scrollbar-track,
+section:nth-child(4)::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 0.625rem;
+}
+
+#incompleteBookList,
+#completeBookList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.625rem;
+}
+
+label {
+  font-weight: 600;
+}
+
+input {
+  background: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid wheat;
+  color: wheat;
+  margin-bottom: 0.625rem;
+}
+
+input[type="text"],
+input[type="number"] {
+  display: block;
+  width: 100%;
+  font-size: 0.9rem;
+}
+
+input[type="checkbox"] {
+  margin-left: 0.9rem;
+  transform: scale(1.5);
+  accent-color: wheat;
+}
+
+button {
+  padding: 0.3rem;
+  border-radius: 0.3rem;
+  border: none;
+}
+
+.bookItem-button {
+  padding: 0.125rem 0.3rem;
+  margin: 0px 0.3rem;
+  border-radius: 0.3rem;
+  border: none;
+  transition: opacity 0.1s ease-in-out;
+  margin-bottom: 1.9rem;
+}
+
+button span {
+  font-weight: bold;
+}
+
+#bookFormSubmit,
+#searchSubmit {
+  background: wheat;
+  transition: background-color 0.1s ease-in-out;
+}
+#bookFormSubmit:hover,
+#searchSubmit:hover {
+  background-color: salmon;
+}
+
+[data-testid="bookItemIsCompleteButton"] {
+  color: white;
+  background-color: green;
+}
+
+[data-testid="bookItemIsCompleteButton"]:hover {
+  opacity: 0.8;
+}
+
+[data-testid="bookItemDeleteButton"] {
+  color: white;
+  background-color: red;
+}
+
+[data-testid="bookItemDeleteButton"]:hover {
+  opacity: 0.8;
+}
+
+[data-testid="bookItemEditButton"] {
+  border: none;
+  padding: 0.125rem 0.3rem;
+  border-radius: 0.3rem;
+  color: black;
+  background-color: gold;
+  transition: opacity 0.1s ease-in-out;
+}
+
+[data-testid="bookItemEditButton"]:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  body {
+    background-position: 60% 50%;
+    overflow-y: scroll;
+    height: auto;
+    padding: 0;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin-left: 0;
+  }
+
+  section:nth-child(4) {
+    margin-top: 0;
+  }
+
+  section {
+    margin: 0.625rem auto;
+    width: 90%;
+    margin-bottom: 5%;
+  }
+
+  section:nth-child(3),
+  section:nth-child(4) {
+    backdrop-filter: blur(0px);
+  }
+
+  #incompleteBookList,
+  #completeBookList {
+    display: block;
+  }
+}
+
+.toast {
+  visibility: hidden;
+  min-width: 15.625rem;
+  margin-left: -7.8rem;
+  background-color: wheat;
+  color: black;
+  text-align: center;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: 1.9rem;
+  font-size: 1.1rem;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.toast.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+@media (max-width: 480px) {
+  body {
+    background-position: 65% 50%;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  button {
+    font-size: 0.75rem;
+  }
+
+  section:nth-child(1),
+  section:nth-child(2),
+  section:nth-child(3),
+  section:nth-child(4) {
+    backdrop-filter: blur(8px);
+  }
+
+  #bookFormSubmit,
+  #searchSubmit {
+    width: 100%;
+  }
+
+  input {
+    font-size: 0.875rem;
+  }
+
+  #incompleteBookList,
+  #completeBookList {
+    display: block;
+  }
+}
